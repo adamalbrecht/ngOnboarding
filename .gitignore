@@ -1,0 +1,8 @@
+*.swp
+bower_components
+.DS_Store
+node_modules
+build
+spec/build
+ng-onboarding.zip
+dist/ng-onboarding.zip

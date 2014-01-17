@@ -1,0 +1,26 @@
+{
+  "name": "ngOnboarding",
+  "version": "0.1-beta",
+  "main": ["dist/ng-onboarding.js", "dist/ng-onboarding.css"],
+  "ignore": [
+    ".gitignore",
+    "bower_components",
+    "node_modules",
+    "spec",
+    "src",
+    "vendor",
+    "demo.html",
+    "Gruntfile.js",
+    "karma.conf.coffee",
+    "package.json",
+    "screenshot.png"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "angular": "~1.2.4",
+    "angular-mocks": "~1.2.4",
+    "jasmine": "~1.3.1",
+    "karma-jasmine": "~0.1.3",
+    "jquery": "~2.0"
+  }
+}

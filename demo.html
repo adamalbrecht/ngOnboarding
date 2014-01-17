@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html data-ng-app='ngOnboardingDemo'>
+  <head>
+    <title>ngQuickDate Demo</title>
+    <link rel="stylesheet" type="text/css" href="dist/ng-onboarding.css" media="all" />
+    <style type='text/css'>
+      body{font-family:'Helvetica Neue',Helvetica,sans-serif}
+      h1 { padding: 0; margin: 0; }
+      .ng-cloak { display: none; }
+      .zone {
+        position:relative;
+        width: 400px;
+        min-height: 100px;
+        border: solid 1px #999;
+        padding: 5px;
+        margin: 5px;
+        background-color: #eee;
+      }
+      #start_button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        padding: 5px 8px;
+        border: solid 1px #555;
+        border-radius: 5px;
+      }
+      #content_1 {
+        height: 300px;
+      }
+      #content_3 {
+        margin-top:50px;
+      }
+      #content_2 {
+        float:right;
+      }
+      #content_4 {
+        position: absolute;
+        bottom: 40px;
+        left:400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div ng-controller='DemoController'>
+      <a id='start_button' href='' ng-click='startOnboarding()'>Start Onboarding!</a>
+      <onboarding-popover enabled='showOnboarding' steps='onboardingSteps'></onboarding-popover>
+      <div id='content_1' class='zone'>
+        <h2>Content 1</h2>
+      </div>
+      <div id='content_2' class='zone'>
+        <h2>Content 2</h2>
+        <p>Morbi pulvinar massa quis lectus hendrerit, id porta erat sodales. Nullam vitae turpis metus. Suspendisse porta consequat nisi at viverra. Phasellus egestas est et condimentum ultrices. Donec vulputate convallis dictum. In et risus scelerisque, ornare elit ullamcorper, adipiscing libero. Proin nec venenatis orci, ut facilisis sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras non bibendum orci, sed luctus dolor. Pellentesque quis faucibus ipsum. Ut id eleifend sapien, a dignissim ante. Maecenas sagittis justo imperdiet consectetur imperdiet. Praesent sagittis lectus risus, quis sodales odio porta a.</p>
+      </div>
+      <div id='content_3' class='zone'>
+        <h3>Content 3</h3>
+        <table>
+          <thead><tr><th>ID</th><th>Name</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>John Doe</td></tr>
+            <tr><td>2</td><td>Jane Smith</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div id='content_4' class='zone'>
+        <h2>Content Zone 4</h2>
+        <form>
+          <p>
+            <label>Field 1</label>
+            <br/>
+            <input type='text' />
+          </p>
+          <p>
+            <label>Field 2</label>
+            <br/>
+            <select><option>Choose Me</option></select>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="bower_components/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="dist/ng-onboarding.js"></script>
+    <script type='text/javascript'>
+      app = angular.module('ngOnboardingDemo', ['ngOnboarding']);
+      app.config(function(ngOnboardingDefaultsProvider) {
+          return ngOnboardingDefaultsProvider.set({
+          });
+      });
+      app.controller('DemoController', function($scope) {
+        $scope.startOnboarding = function() {
+          $scope.showOnboarding = true;
+        };
+        $scope.showOnboarding = false
+        $scope.onboardingSteps = [
+          {
+            overlay: true,
+            title: 'Welcome!',
+            description: "This is a box with the position set to 'centered'.",
+            position: 'centered'
+          },
+          {
+            attachTo: '#content_1',
+            position: 'right',
+            overlay: true,
+            title: 'Content 1!',
+            width: 400,
+            description: "This description includes <strong>some html</strong> tags and it is attached to the '#content_1' element with a position of 'right'. It also has a width of 400."
+          },
+          {
+            attachTo: '#content_2',
+            position: 'left',
+            overlay: true,
+            title: 'Content 2 is here!',
+            description: 'Etiam dictum dignissim suscipit. Cras vitae velit hendrerit, euismod risus fringilla, varius sapien. Duis cursus vulputate egestas. Suspendisse nec mi vitae tortor vulputate aliquet. Fusce malesuada, elit et sagittis posuere, elit erat congue leo, in pellentesque felis orci vel est. Nunc tincidunt neque erat, a tempus lacus auctor nec. Duis nec sem sed quam fringilla porttitor. In ac lacinia nunc. Nulla ornare mi eget gravida venenatis. Nam sit amet neque quis ligula condimentum ultricies nec at ipsum.'
+          },
+          {
+            attachTo: '#content_3',
+            position: 'bottom',
+            overlay: false,
+            title: 'Content 3 Info!',
+            description: 'This one contains no overlay!'
+          },
+          {
+            attachTo: '#content_4',
+            position: 'top',
+            overlay: true,
+            overlayOpacity: 0.4,
+            title: 'Welcome to Content 4!',
+            description: 'This one has the opacity of the overlay set to 0.4',
+          },
+          {
+            overlay: true,
+            title: 'All Done!',
+            description: "This box is explicitly set to a position of {top: 150, right: 300}",
+            top: 150,
+            right: 300
+          },
+
+        ];
+      });
+    </script>
+  </body>
+</html>

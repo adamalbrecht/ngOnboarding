@@ -1,0 +1,14 @@
+{
+  "name": "ngOnboarding",
+  "version": "0.1-beta"
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-coffee": "~0.7",
+    "grunt-contrib-watch": "~0.5",
+    "grunt-contrib-uglify": "~0.2",
+    "karma": "~0.10",
+    "karma-coffee-preprocessor": "~0.1",
+    "grunt-contrib-less": "~0.8.2",
+    "grunt-zip": "~0.12.0"
+  }
+}
