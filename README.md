@@ -16,17 +16,17 @@ Next, you'll need to configure the steps for the onboarding experience. The conf
 ```javascript
 $scope.onboardingSteps = [
   {
-    title: 'Welcome!',
-    position: 'centered'
-    description: "Welcome to my app!',
+    title: "Welcome!",
+    position: "centered",
+    description: "Welcome to my app!",
     width: 300
   },
   {
-    title: 'Account Setup'
-    position: 'right',
+    title: "Account Setup",
+    position: "right",
     description: "This is the form for configuring your account.",
-    attachTo: '#account_form',
-    position: 'bottom'
+    attachTo: "#account_form",
+    position: "bottom"
   }
 ];
 ```
@@ -36,7 +36,7 @@ The directive itself is called *onboarding-popover*. It requires 2 attributes:
   * `steps` should point to the steps configuration.
 
 ```html
-<onboarding-popover enabled='onboardingEnabled' steps='onboardingSteps' />
+<onboarding-popover enabled="onboardingEnabled" steps="onboardingSteps" />
 ```
 
 ## Step Configuration Options
