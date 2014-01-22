@@ -7,7 +7,7 @@
     return {
       options: {
         overlay: false,
-        overlayOpacity: 0.8,
+        overlayOpacity: 0.6,
         overlayClass: 'onboarding-overlay',
         popoverClass: 'onboarding-popover',
         titleClass: 'onboarding-popover-title',
