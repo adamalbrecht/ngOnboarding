@@ -4,6 +4,10 @@ ngOnboarding is a tooltip tutorial / onboarding framework for [Angular.js](http:
 
 ![ngOnboarding Screenshot](https://raw.github.com/adamalbrecht/ngOnboarding/master/screenshot.png)
 
+## Demo
+
+You can find a very simple example of ngOnboarding [here](http://adamalbrecht.github.io/ngOnboarding/).
+
 ## The Basics
 To use the library, add the JS and CSS file, then include the module in your app
 
