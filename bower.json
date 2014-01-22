@@ -1,6 +1,6 @@
 {
   "name": "ngOnboarding",
-  "version": "0.1-beta",
+  "version": "0.1",
   "main": ["dist/ng-onboarding.js", "dist/ng-onboarding.css"],
   "ignore": [
     ".gitignore",
