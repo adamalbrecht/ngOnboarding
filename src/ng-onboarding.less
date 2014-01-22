@@ -24,12 +24,12 @@
   min-width: 100px;
   min-height: 50px;
 
-  &.top     { margin-top: -10px; }
-  &.right   { margin-left: 10px; }
-  &.bottom  { margin-top: 10px; }
-  &.left    { margin-left: -10px; } 
+  &.onboarding-top     { margin-top: -10px; }
+  &.onboarding-right   { margin-left: 10px; }
+  &.onboarding-bottom  { margin-top: 10px; }
+  &.onboarding-left    { margin-left: -10px; } 
 }
-.onboarding-popover.centered {
+.onboarding-popover.onboarding-centered {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -57,7 +57,7 @@
   content: "";
 }
 
-.onboarding-popover.bottom .onboarding-arrow {
+.onboarding-popover.onboarding-bottom .onboarding-arrow {
   top: -@arrow-outer-width;
   left: 50%;
   margin-left: -@arrow-outer-width;
@@ -71,7 +71,7 @@
     border-bottom-color: @arrow-color;
   }
 }
-.onboarding-popover.top .onboarding-arrow {
+.onboarding-popover.onboarding-top .onboarding-arrow {
   bottom: -@arrow-outer-width;
   left: 50%;
   margin-left: -@arrow-outer-width;
@@ -85,7 +85,7 @@
     border-top-color: @arrow-color;
   }
 }
-.onboarding-popover.left .onboarding-arrow {
+.onboarding-popover.onboarding-left .onboarding-arrow {
   top: 50%;
   right: -@arrow-outer-width;
   margin-top: -@arrow-outer-width;
@@ -99,7 +99,7 @@
     bottom: -@arrow-width;
   }
 }
-.onboarding-popover.right .onboarding-arrow {
+.onboarding-popover.onboarding-right .onboarding-arrow {
   top: 50%;
   left: -@arrow-outer-width;
   margin-top: -@arrow-outer-width;

@@ -15,19 +15,19 @@
   min-width: 100px;
   min-height: 50px;
 }
-.onboarding-popover.top {
+.onboarding-popover.onboarding-top {
   margin-top: -10px;
 }
-.onboarding-popover.right {
+.onboarding-popover.onboarding-right {
   margin-left: 10px;
 }
-.onboarding-popover.bottom {
+.onboarding-popover.onboarding-bottom {
   margin-top: 10px;
 }
-.onboarding-popover.left {
+.onboarding-popover.onboarding-left {
   margin-left: -10px;
 }
-.onboarding-popover.centered {
+.onboarding-popover.onboarding-centered {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -52,56 +52,56 @@
   border-width: 10px;
   content: "";
 }
-.onboarding-popover.bottom .onboarding-arrow {
+.onboarding-popover.onboarding-bottom .onboarding-arrow {
   top: -11px;
   left: 50%;
   margin-left: -11px;
   border-bottom-color: #cccccc;
   border-top-width: 0;
 }
-.onboarding-popover.bottom .onboarding-arrow:after {
+.onboarding-popover.onboarding-bottom .onboarding-arrow:after {
   content: " ";
   top: 1px;
   margin-left: -10px;
   border-top-width: 0;
   border-bottom-color: #ffffff;
 }
-.onboarding-popover.top .onboarding-arrow {
+.onboarding-popover.onboarding-top .onboarding-arrow {
   bottom: -11px;
   left: 50%;
   margin-left: -11px;
   border-top-color: #cccccc;
   border-bottom-width: 0;
 }
-.onboarding-popover.top .onboarding-arrow:after {
+.onboarding-popover.onboarding-top .onboarding-arrow:after {
   content: " ";
   bottom: 1px;
   margin-left: -10px;
   border-bottom-width: 0;
   border-top-color: #ffffff;
 }
-.onboarding-popover.left .onboarding-arrow {
+.onboarding-popover.onboarding-left .onboarding-arrow {
   top: 50%;
   right: -11px;
   margin-top: -11px;
   border-left-color: #cccccc;
   border-right-width: 0;
 }
-.onboarding-popover.left .onboarding-arrow:after {
+.onboarding-popover.onboarding-left .onboarding-arrow:after {
   content: " ";
   right: 1px;
   border-right-width: 0;
   border-left-color: #ffffff;
   bottom: -10px;
 }
-.onboarding-popover.right .onboarding-arrow {
+.onboarding-popover.onboarding-right .onboarding-arrow {
   top: 50%;
   left: -11px;
   margin-top: -11px;
   border-right-color: #cccccc;
   border-left-width: 0;
 }
-.onboarding-popover.right .onboarding-arrow:after {
+.onboarding-popover.onboarding-right .onboarding-arrow:after {
   content: " ";
   left: 1px;
   bottom: -10px;

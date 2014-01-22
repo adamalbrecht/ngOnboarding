@@ -135,13 +135,18 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
           scope.top = top
           scope.bottom = bottom
 
+      if scope.position && scope.position.length
+        scope.positionClass = "onboarding-#{scope.position}"
+      else
+        scope.positionClass = null
+
     if scope.steps.length
       scope.index = 0
 
   template: """
               <div class='onboarding-container' ng-show='enabled'>
                 <div class='{{overlayClass}}' ng-style='{opacity: overlayOpacity}', ng-show='overlay'></div>
-                <div class='{{popoverClass}} {{position}}' ng-style="{width: width, height: height, left: left, top: top, right: right, bottom: bottom}">
+                <div class='{{popoverClass}} {{positionClass}}' ng-style="{width: width, height: height, left: left, top: top, right: right, bottom: bottom}">
                   <div class='{{arrowClass}}'></div>
                   <h3 class='{{titleClass}}'>
                     <span ng-bind='title'></span>
