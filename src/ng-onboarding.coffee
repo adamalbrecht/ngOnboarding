@@ -46,6 +46,7 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
   scope:
     enabled: '='
     steps: '='
+    onFinishCallback: '='
   replace: true
   link: (scope, element, attrs) ->
     # Important Variables
@@ -59,6 +60,8 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
     scope.close = ->
       scope.enabled = false
       setupOverlay(false)
+      if scope.onFinishCallback
+        scope.onFinishCallback()
 
     # Watch for changes in the current step index
     scope.$watch 'index', (newVal, oldVal) ->

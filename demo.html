@@ -43,7 +43,7 @@
   <body>
     <div ng-controller='DemoController'>
       <a id='start_button' href='' ng-click='startOnboarding()'>Start Onboarding!</a>
-      <onboarding-popover enabled='showOnboarding' steps='onboardingSteps'></onboarding-popover>
+      <onboarding-popover enabled='showOnboarding' steps='onboardingSteps' on-finish-callback='showFinishPopup'></onboarding-popover>
       <div id='content_1' class='zone'>
         <h2>Content 1</h2>
       </div>
@@ -138,6 +138,10 @@
           },
 
         ];
+        $scope.showFinishPopup = function() {
+          console.log("FINISHED!");
+          alert("This was called from the onFinish callback!");
+        };
       });
     </script>
   </body>

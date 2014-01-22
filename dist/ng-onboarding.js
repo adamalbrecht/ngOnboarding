@@ -50,7 +50,8 @@
         restrict: 'E',
         scope: {
           enabled: '=',
-          steps: '='
+          steps: '=',
+          onFinishCallback: '='
         },
         replace: true,
         link: function(scope, element, attrs) {
@@ -66,7 +67,10 @@
           };
           scope.close = function() {
             scope.enabled = false;
-            return setupOverlay(false);
+            setupOverlay(false);
+            if (scope.onFinishCallback) {
+              return scope.onFinishCallback();
+            }
           };
           scope.$watch('index', function(newVal, oldVal) {
             var attr, k, v, _i, _len;
