@@ -22,12 +22,14 @@ app.provider "ngOnboardingDefaults", ->
     buttonContainerClass: 'onboarding-button-container',
     buttonClass: "onboarding-button",
     showButtons: true,
-    nextButtonText: 'Next',
-    previousButtonText: 'Previous',
+    nextButtonText: 'Next &rarr;',
+    previousButtonText: '&larr; Previous',
     showDoneButton: true,
     doneButtonText: 'Done',
     closeButtonClass: 'onboarding-close-button',
-    closeButtonText: 'X'
+    closeButtonText: 'X',
+    stepClass: 'onboarding-step-info',
+    showStepInfo: true
   }
   $get: ->
     @options
@@ -49,6 +51,7 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
     # Important Variables
     curStep = null
     attributesToClear = ['top', 'right', 'bottom', 'left', 'width', 'height', 'position']
+    scope.stepCount = scope.steps.length
 
     # Button Actions
     scope.next = -> scope.index = scope.index + 1
@@ -147,7 +150,8 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
                   <div class='{{contentClass}}'>
                     <p ng-bind-html='description'></p>
                   </div>
-                  <div ng-show='showButtons' class='{{buttonContainerClass}}'>
+                  <div class='{{buttonContainerClass}}' ng-show='showButtons'>
+                    <span ng-show='showStepInfo' class='{{stepClass}}'>Step {{index + 1}} of {{stepCount}}</span>
                     <a href='' ng-click='previous()' ng-show='showPreviousButton' class='{{buttonClass}}' ng-bind-html='previousButtonText'></a>
                     <a href='' ng-click='next()' ng-show='showNextButton' class='{{buttonClass}}' ng-bind-html='nextButtonText'></a>
                     <a href='' ng-click='close()' ng-show='showDoneButton && lastStep' class='{{buttonClass}}' ng-bind-html='doneButtonText'></a>

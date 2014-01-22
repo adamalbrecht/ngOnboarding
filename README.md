@@ -49,4 +49,4 @@ Coming Soon
 
 ## Credit
 
-Much of the CSS consists of tweaked versions of several [Bootstrap](https://github.com/twbs/bootstrap) components. And the API was inspired by a jQuery plugin called [Guiders.js](https://github.com/jeff-optimizely/Guiders-JS), though none of its code was used.
+Much of the CSS consists of tweaked versions of several [Bootstrap](https://github.com/twbs/bootstrap) components. The API was partially inspired by a jQuery plugin called [Guiders.js](https://github.com/jeff-optimizely/Guiders-JS), though none of its code was used. And the styling was partially inspired by [Tourist.js](https://github.com/easelinc/tourist), though again, no code was used.
