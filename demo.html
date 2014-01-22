@@ -43,7 +43,7 @@
   <body>
     <div ng-controller='DemoController'>
       <a id='start_button' href='' ng-click='startOnboarding()'>Start Onboarding!</a>
-      <onboarding-popover enabled='showOnboarding' steps='onboardingSteps' on-finish-callback='showFinishPopup'></onboarding-popover>
+      <onboarding-popover enabled='showOnboarding' steps='onboardingSteps' on-finish-callback='showFinishPopup' step-index='stepIndex'></onboarding-popover>
       <div id='content_1' class='zone'>
         <h2>Content 1</h2>
       </div>
@@ -89,6 +89,7 @@
       });
       app.controller('DemoController', function($scope) {
         $scope.startOnboarding = function() {
+          $scope.stepIndex = 0
           $scope.showOnboarding = true;
         };
         $scope.showOnboarding = false

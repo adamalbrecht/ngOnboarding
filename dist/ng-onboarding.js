@@ -51,7 +51,8 @@
         scope: {
           enabled: '=',
           steps: '=',
-          onFinishCallback: '='
+          onFinishCallback: '=',
+          index: '=stepIndex'
         },
         replace: true,
         link: function(scope, element, attrs) {
@@ -173,7 +174,7 @@
               return scope.positionClass = null;
             }
           };
-          if (scope.steps.length) {
+          if (scope.steps.length && !scope.index) {
             return scope.index = 0;
           }
         },

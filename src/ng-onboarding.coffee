@@ -47,6 +47,7 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
     enabled: '='
     steps: '='
     onFinishCallback: '='
+    index: '=stepIndex'
   replace: true
   link: (scope, element, attrs) ->
     # Important Variables
@@ -143,7 +144,7 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
       else
         scope.positionClass = null
 
-    if scope.steps.length
+    if scope.steps.length && !scope.index
       scope.index = 0
 
   template: """
