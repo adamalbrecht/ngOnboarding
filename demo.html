@@ -41,9 +41,11 @@
     </style>
   </head>
   <body>
+    <h1>ngOnboarding</h1>
+    <p>ngOnboarding is a tooltip tutorial / onboarding framework for <a href='http://angularjs.org'>Angular.js</a> that can help give your user a better onboarding experience.</p>
     <div ng-controller='DemoController'>
       <a id='start_button' href='' ng-click='startOnboarding()'>Start Onboarding!</a>
-      <onboarding-popover enabled='showOnboarding' steps='onboardingSteps' on-finish-callback='showFinishPopup' step-index='stepIndex'></onboarding-popover>
+      <onboarding-popover enabled='showOnboarding' steps='onboardingSteps' step-index='stepIndex'></onboarding-popover>
       <div id='content_1' class='zone'>
         <h2>Content 1</h2>
       </div>
@@ -92,7 +94,6 @@
           $scope.stepIndex = 0
           $scope.showOnboarding = true;
         };
-        $scope.showOnboarding = false
         $scope.onboardingSteps = [
           {
             overlay: true,
@@ -136,13 +137,9 @@
             description: "This box is explicitly set to a position of {top: 150, right: 300}",
             top: 150,
             right: 300
-          },
-
+          }
         ];
-        $scope.showFinishPopup = function() {
-          console.log("FINISHED!");
-          alert("This was called from the onFinish callback!");
-        };
+        $scope.showOnboarding = true
       });
     </script>
   </body>
