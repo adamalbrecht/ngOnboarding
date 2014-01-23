@@ -12,7 +12,7 @@ app = angular.module("ngOnboarding", [])
 
 app.provider "ngOnboardingDefaults", ->
   options: {
-    overlay: false,
+    overlay: true,
     overlayOpacity: 0.6,
     overlayClass: 'onboarding-overlay',
     popoverClass: 'onboarding-popover',

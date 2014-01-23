@@ -6,7 +6,7 @@
   app.provider("ngOnboardingDefaults", function() {
     return {
       options: {
-        overlay: false,
+        overlay: true,
         overlayOpacity: 0.6,
         overlayClass: 'onboarding-overlay',
         popoverClass: 'onboarding-popover',

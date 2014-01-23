@@ -1,6 +1,6 @@
 {
   "name": "ngOnboarding",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-coffee": "~0.7",
