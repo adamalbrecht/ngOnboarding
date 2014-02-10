@@ -152,10 +152,8 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
                 <div class='{{overlayClass}}' ng-style='{opacity: overlayOpacity}', ng-show='overlay'></div>
                 <div class='{{popoverClass}} {{positionClass}}' ng-style="{width: width, height: height, left: left, top: top, right: right, bottom: bottom}">
                   <div class='{{arrowClass}}'></div>
-                  <h3 class='{{titleClass}}'>
-                    <span ng-bind='title'></span>
-                    <a href='' ng-click='close()' class='{{closeButtonClass}}' ng-bind-html='closeButtonText'></a>
-                  </h3>
+                  <h3 class='{{titleClass}}' ng-show='title' ng-bind='title'></h3>
+                  <a href='' ng-click='close()' class='{{closeButtonClass}}' ng-bind-html='closeButtonText'></a>
                   <div class='{{contentClass}}'>
                     <p ng-bind-html='description'></p>
                   </div>
