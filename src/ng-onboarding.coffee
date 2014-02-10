@@ -52,7 +52,7 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
   link: (scope, element, attrs) ->
     # Important Variables
     curStep = null
-    attributesToClear = ['top', 'right', 'bottom', 'left', 'width', 'height', 'position']
+    attributesToClear = ['title', 'top', 'right', 'bottom', 'left', 'width', 'height', 'position']
     scope.stepCount = scope.steps.length
 
     # Button Actions

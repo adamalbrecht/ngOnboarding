@@ -58,7 +58,7 @@
         link: function(scope, element, attrs) {
           var attributesToClear, curStep, setupOverlay, setupPositioning;
           curStep = null;
-          attributesToClear = ['top', 'right', 'bottom', 'left', 'width', 'height', 'position'];
+          attributesToClear = ['title', 'top', 'right', 'bottom', 'left', 'width', 'height', 'position'];
           scope.stepCount = scope.steps.length;
           scope.next = function() {
             return scope.index = scope.index + 1;
