@@ -71,7 +71,6 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
         setupOverlay(false)
         return
 
-      console.log "WATCH"
       curStep = scope.steps[scope.index]
       scope.lastStep = (scope.index + 1 == scope.steps.length)
       scope.showNextButton = (scope.index + 1 < scope.steps.length)
