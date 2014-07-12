@@ -1,5 +1,5 @@
 {
-  "name": "ngOnboarding",
+  "name": "ng-onboarding",
   "version": "0.1.7",
   "devDependencies": {
     "grunt": "~0.4.1",
