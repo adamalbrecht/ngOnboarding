@@ -53,7 +53,6 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
     # Important Variables
     curStep = null
     attributesToClear = ['title', 'top', 'right', 'bottom', 'left', 'width', 'height', 'position']
-    scope.stepCount = scope.steps.length
 
     # Button Actions
     scope.next = -> scope.index = scope.index + 1
@@ -75,6 +74,7 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
       scope.lastStep = (scope.index + 1 == scope.steps.length)
       scope.showNextButton = (scope.index + 1 < scope.steps.length)
       scope.showPreviousButton = (scope.index > 0)
+      scope.stepCount = scope.steps.length
       for attr in attributesToClear
         scope[attr] = null
       for k, v of ngOnboardingDefaults
