@@ -66,7 +66,7 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
 
     # Watch for changes in the current step index
     scope.$watch 'index', (newVal, oldVal) ->
-      if newVal == null
+      if typeof(newVal) == 'undefined'
         scope.enabled = false
         setupOverlay(false)
         return
@@ -130,7 +130,7 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
             top = $(attachTo).offset().top + $(attachTo).outerHeight() + yMargin
           else if scope.position == 'top'
             bottom = $(window).height() - $(attachTo).offset().top + yMargin
-            
+
 
           if curStep['yOffset']
             top = top + curStep['yOffset'] if top != null

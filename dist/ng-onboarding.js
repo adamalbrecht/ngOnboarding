@@ -75,7 +75,7 @@
           };
           scope.$watch('index', function(newVal, oldVal) {
             var attr, k, v, _i, _len;
-            if (newVal === null) {
+            if (typeof(newVal) == 'undefined') {
               scope.enabled = false;
               setupOverlay(false);
               return;
