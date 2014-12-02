@@ -53,7 +53,6 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
     # Important Variables
     curStep = null
     attributesToClear = ['title', 'top', 'right', 'bottom', 'left', 'width', 'height', 'position']
-    scope.stepCount = scope.steps.length
 
     # Button Actions
     scope.next = -> scope.index = scope.index + 1
@@ -66,7 +65,7 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
 
     # Watch for changes in the current step index
     scope.$watch 'index', (newVal, oldVal) ->
-      if newVal == null
+      if typeof(newVal) == 'undefined'
         scope.enabled = false
         setupOverlay(false)
         return
@@ -75,6 +74,7 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
       scope.lastStep = (scope.index + 1 == scope.steps.length)
       scope.showNextButton = (scope.index + 1 < scope.steps.length)
       scope.showPreviousButton = (scope.index > 0)
+      scope.stepCount = scope.steps.length
       for attr in attributesToClear
         scope[attr] = null
       for k, v of ngOnboardingDefaults
@@ -130,7 +130,7 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
             top = $(attachTo).offset().top + $(attachTo).outerHeight() + yMargin
           else if scope.position == 'top'
             bottom = $(window).height() - $(attachTo).offset().top + yMargin
-            
+
 
           if curStep['yOffset']
             top = top + curStep['yOffset'] if top != null

@@ -59,7 +59,6 @@
           var attributesToClear, curStep, setupOverlay, setupPositioning;
           curStep = null;
           attributesToClear = ['title', 'top', 'right', 'bottom', 'left', 'width', 'height', 'position'];
-          scope.stepCount = scope.steps.length;
           scope.next = function() {
             return scope.index = scope.index + 1;
           };
@@ -75,7 +74,7 @@
           };
           scope.$watch('index', function(newVal, oldVal) {
             var attr, k, v, _i, _len;
-            if (newVal === null) {
+            if (typeof newVal === 'undefined') {
               scope.enabled = false;
               setupOverlay(false);
               return;
@@ -84,6 +83,7 @@
             scope.lastStep = scope.index + 1 === scope.steps.length;
             scope.showNextButton = scope.index + 1 < scope.steps.length;
             scope.showPreviousButton = scope.index > 0;
+            scope.stepCount = scope.steps.length;
             for (_i = 0, _len = attributesToClear.length; _i < _len; _i++) {
               attr = attributesToClear[_i];
               scope[attr] = null;
