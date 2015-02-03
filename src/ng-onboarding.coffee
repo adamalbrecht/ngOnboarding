@@ -29,7 +29,8 @@ app.provider "ngOnboardingDefaults", ->
     closeButtonClass: 'onboarding-close-button',
     closeButtonText: 'X',
     stepClass: 'onboarding-step-info',
-    showStepInfo: true
+    showStepInfo: true,
+    customTemplate: null
   }
   $get: ->
     @options
@@ -41,7 +42,28 @@ app.provider "ngOnboardingDefaults", ->
     else
       @options[keyOrHash] = value
 
-app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', (ngOnboardingDefaults, $sce, $timeout) ->
+app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', '$templateCache', (ngOnboardingDefaults, $sce, $timeout, $templateCache) ->
+  defaultTemplate = """
+              <div class='onboarding-container' ng-show='enabled'>
+                <div class='{{overlayClass}}' ng-style='{opacity: overlayOpacity}', ng-show='overlay'></div>
+                <div class='{{popoverClass}} {{positionClass}}' ng-style="{width: width, height: height, left: left, top: top, right: right, bottom: bottom}">
+                  <div class='{{arrowClass}}'></div>
+                  <h3 class='{{titleClass}}' ng-show='title' ng-bind='title'></h3>
+                  <a href='' ng-click='close()' class='{{closeButtonClass}}' ng-bind-html='closeButtonText'></a>
+                  <div class='{{contentClass}}'>
+                    <p ng-bind-html='description'></p>
+                  </div>
+                  <div class='{{buttonContainerClass}}' ng-show='showButtons'>
+                    <span ng-show='showStepInfo' class='{{stepClass}}'>Step {{index + 1}} of {{stepCount}}</span>
+                    <a href='' ng-click='previous()' ng-show='showPreviousButton' class='{{buttonClass}}' ng-bind-html='previousButtonText'></a>
+                    <a href='' ng-click='next()' ng-show='showNextButton' class='{{buttonClass}}' ng-bind-html='nextButtonText'></a>
+                    <a href='' ng-click='close()' ng-show='showDoneButton && lastStep' class='{{buttonClass}}' ng-bind-html='doneButtonText'></a>
+                  </div>
+                </div>
+              </div>
+            """
+  $templateCache.put 'default-template.html', defaultTemplate
+  {
   restrict: 'E'
   scope:
     enabled: '='
@@ -146,23 +168,11 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
     if scope.steps.length && !scope.index
       scope.index = 0
 
-  template: """
-              <div class='onboarding-container' ng-show='enabled'>
-                <div class='{{overlayClass}}' ng-style='{opacity: overlayOpacity}', ng-show='overlay'></div>
-                <div class='{{popoverClass}} {{positionClass}}' ng-style="{width: width, height: height, left: left, top: top, right: right, bottom: bottom}">
-                  <div class='{{arrowClass}}'></div>
-                  <h3 class='{{titleClass}}' ng-show='title' ng-bind='title'></h3>
-                  <a href='' ng-click='close()' class='{{closeButtonClass}}' ng-bind-html='closeButtonText'></a>
-                  <div class='{{contentClass}}'>
-                    <p ng-bind-html='description'></p>
-                  </div>
-                  <div class='{{buttonContainerClass}}' ng-show='showButtons'>
-                    <span ng-show='showStepInfo' class='{{stepClass}}'>Step {{index + 1}} of {{stepCount}}</span>
-                    <a href='' ng-click='previous()' ng-show='showPreviousButton' class='{{buttonClass}}' ng-bind-html='previousButtonText'></a>
-                    <a href='' ng-click='next()' ng-show='showNextButton' class='{{buttonClass}}' ng-bind-html='nextButtonText'></a>
-                    <a href='' ng-click='close()' ng-show='showDoneButton && lastStep' class='{{buttonClass}}' ng-bind-html='doneButtonText'></a>
-                  </div>
-                </div>
-              </div>
-            """
+  templateUrl: ->
+    if ngOnboardingDefaults.customTemplate
+       ngOnboardingDefaults.customTemplate
+    else
+      'default-template.html'
+  }
+
 ]
