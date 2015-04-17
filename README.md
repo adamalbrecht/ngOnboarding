@@ -77,6 +77,7 @@ There are a number of options that can be passed to each step in your on-boardin
 | yOffset             | null      | Offset the vertical position of the popover relative to the attached element. |
 
 
+
 ## Overriding Directive Defaults
 
 You can also pre-configure some options during your app's configuration phase.
@@ -97,6 +98,8 @@ app.config(function(ngOnboardingDefaultsProvider) {
 | showDoneButton      | true      | Show a 'Done' button on the last popover    |
 | showStepInfo        | true      | Shows 'Step X of Y' text on each popover    |
 | closeButtonText     | X         | Text/HTML used for the close button         |
+| actualStepText      | 'Step'    | Text previous the actual step |
+| totalStepText       | 'of'      | Text between actual step and total steps |
 
 The CSS classes used in the HTML are also configurable. Please see the source for more info.
 
