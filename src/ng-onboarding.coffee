@@ -29,6 +29,8 @@ app.provider "ngOnboardingDefaults", ->
     closeButtonClass: 'onboarding-close-button',
     closeButtonText: 'X',
     stepClass: 'onboarding-step-info',
+    actualStepText: 'Step',
+    totalStepText: 'of',
     showStepInfo: true
   }
   $get: ->
@@ -89,6 +91,8 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
       scope.previousButtonText = $sce.trustAsHtml(scope.previousButtonText)
       scope.doneButtonText = $sce.trustAsHtml(scope.doneButtonText)
       scope.closeButtonText = $sce.trustAsHtml(scope.closeButtonText)
+      scope.actualStepText = $sce.trustAsHtml(scope.actualStepText)
+      scope.totalStepText = $sce.trustAsHtml(scope.totalStepText)
       setupOverlay()
       setupPositioning()
 
@@ -157,7 +161,7 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
                     <p ng-bind-html='description'></p>
                   </div>
                   <div class='{{buttonContainerClass}}' ng-show='showButtons'>
-                    <span ng-show='showStepInfo' class='{{stepClass}}'>Step {{index + 1}} of {{stepCount}}</span>
+                    <span ng-show='showStepInfo' class='{{stepClass}}'>{{actualStepText}} {{index + 1}} {{totalStepText}} {{stepCount}}</span>
                     <a href='' ng-click='previous()' ng-show='showPreviousButton' class='{{buttonClass}}' ng-bind-html='previousButtonText'></a>
                     <a href='' ng-click='next()' ng-show='showNextButton' class='{{buttonClass}}' ng-bind-html='nextButtonText'></a>
                     <a href='' ng-click='close()' ng-show='showDoneButton && lastStep' class='{{buttonClass}}' ng-bind-html='doneButtonText'></a>
