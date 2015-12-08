@@ -72,7 +72,6 @@ There are a number of options that can be passed to each step in your on-boardin
 | width               | null      | Width of the popover. Defaults to the width of the content. |
 | height              | null      | Height of the popover. Defaults to the height of the content. |
 | top, right, bottom, left | null | Set the positioning of the popover explicitly.
-| height              | null      | Height of the popover. Defaults to the height of the content. |
 | xOffset             | null      | Offset the horizontal position of the popover relative to the attached element. |
 | yOffset             | null      | Offset the vertical position of the popover relative to the attached element. |
 
