@@ -66,8 +66,8 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
         scope.onFinishCallback()
 
     # Watch for changes in the current step index
-    scope.$watch 'index', (newVal, oldVal) ->
-      if typeof(newVal) == 'undefined'
+    scope.$watchGroup ['index','enabled'], (newVals, oldVal) ->
+      if typeof(newVals[0]) == 'undefined'
         scope.enabled = false
         setupOverlay(false)
         return
@@ -99,7 +99,7 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
     setupOverlay = (showOverlay=true) ->
       $('.onboarding-focus').removeClass('onboarding-focus')
       if showOverlay
-        if curStep['attachTo'] && scope.overlay
+        if curStep['attachTo'] && scope.overlay && scope.enabled
           $(curStep['attachTo']).addClass('onboarding-focus')
 
     setupPositioning = ->

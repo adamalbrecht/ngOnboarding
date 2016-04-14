@@ -74,9 +74,9 @@
               return scope.onFinishCallback();
             }
           };
-          scope.$watch('index', function(newVal, oldVal) {
+          scope.$watchGroup(['index', 'enabled'], function(newVals, oldVal) {
             var attr, k, v, _i, _len;
-            if (typeof newVal === 'undefined') {
+            if (typeof newVals[0] === 'undefined') {
               scope.enabled = false;
               setupOverlay(false);
               return;
@@ -116,7 +116,7 @@
             }
             $('.onboarding-focus').removeClass('onboarding-focus');
             if (showOverlay) {
-              if (curStep['attachTo'] && scope.overlay) {
+              if (curStep['attachTo'] && scope.overlay && scope.enabled) {
                 return $(curStep['attachTo']).addClass('onboarding-focus');
               }
             }
