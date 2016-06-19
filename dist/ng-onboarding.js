@@ -51,7 +51,7 @@
         scope: {
           enabled: '=',
           steps: '=',
-          onFinishCallback: '=',
+          onFinishCallback: '&onFinishCallback',
           index: '=stepIndex'
         },
         replace: true,
