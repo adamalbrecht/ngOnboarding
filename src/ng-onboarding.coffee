@@ -47,6 +47,8 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
     enabled: '='
     steps: '='
     onFinishCallback: '&onFinishCallback'
+    onNextStep: '&onNextStep'
+    onPreviousStep: '&onPreviousStep'
     index: '=stepIndex'
   replace: true
   link: (scope, element, attrs) ->
@@ -56,8 +58,12 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
     scope.stepCount = scope.steps.length
 
     # Button Actions
-    scope.next = -> scope.index = scope.index + 1
-    scope.previous = -> scope.index = scope.index - 1
+    scope.next = -> 
+      scope.onNextStep({step: scope.index + 1})
+      scope.index = scope.index + 1
+    scope.previous = ->
+      scope.onPreviousStep({step: scope.index - 1})
+      scope.index = scope.index - 1
     scope.close = ->
       scope.enabled = false
       setupOverlay(false)

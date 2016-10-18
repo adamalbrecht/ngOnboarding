@@ -52,6 +52,8 @@
           enabled: '=',
           steps: '=',
           onFinishCallback: '&onFinishCallback',
+          onNextStep: '&onNextStep',
+          onPreviousStep: '&onPreviousStep',
           index: '=stepIndex'
         },
         replace: true,
@@ -61,9 +63,15 @@
           attributesToClear = ['title', 'top', 'right', 'bottom', 'left', 'width', 'height', 'position'];
           scope.stepCount = scope.steps.length;
           scope.next = function() {
+            scope.onNextStep({
+              step: scope.index + 1
+            });
             return scope.index = scope.index + 1;
           };
           scope.previous = function() {
+            scope.onPreviousStep({
+              step: scope.index - 1
+            });
             return scope.index = scope.index - 1;
           };
           scope.close = function() {
