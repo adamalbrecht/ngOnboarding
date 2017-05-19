@@ -50,7 +50,7 @@ There are also 2 optional inline attributes.
   * `stepIndex` is an integer that controls the current step being shown. It will default to 0 if not set explicitly.
 
 ```html
-<onboarding-popover enabled="onboardingEnabled" steps="onboardingSteps" on-finish-callback='myCallbackFunction' step-index='onboardingIndex'></onboarding-popover>
+<onboarding-popover enabled="onboardingEnabled" steps="onboardingSteps" on-finish-callback='myCallbackFunction()' step-index='onboardingIndex'></onboarding-popover>
 ```
 
 ## Step Configuration Options
