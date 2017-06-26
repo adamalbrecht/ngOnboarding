@@ -34,7 +34,9 @@ $scope.onboardingSteps = [
     position: "right",
     description: "This is the form for configuring your account.",
     attachTo: "#account_form",
-    position: "bottom"
+    position: "bottom",
+    nextFunction: function nextClick () { alert('Next btn clicked') },
+    prevFunction: function prevClick () { alert('prev button clicked') }
   }
 ];
 ```
