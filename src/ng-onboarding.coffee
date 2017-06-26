@@ -52,12 +52,18 @@ app.directive 'onboardingPopover', ['ngOnboardingDefaults', '$sce', '$timeout', 
   link: (scope, element, attrs) ->
     # Important Variables
     curStep = null
-    attributesToClear = ['title', 'top', 'right', 'bottom', 'left', 'width', 'height', 'position']
+    attributesToClear = ['title', 'top', 'right', 'bottom', 'left', 'width', 'height', 'position', 'nextFunction', 'prevFunction']
     scope.stepCount = scope.steps.length
 
     # Button Actions
-    scope.next = -> scope.index = scope.index + 1
-    scope.previous = -> scope.index = scope.index - 1
+    scope.next = ->
+      if scope.steps[scope.index].nextFunction
+        scope.steps[scope.index].nextFunction();
+      scope.index = scope.index + 1
+    scope.previous = -> 
+      if scope.steps[scope.index].prevFunction
+        scope.steps[scope.index].prevFunction();
+      scope.index = scope.index - 1
     scope.close = ->
       scope.enabled = false
       setupOverlay(false)
